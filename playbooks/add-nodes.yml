@@ -1,5 +1,0 @@
----
-- hosts: os
-  sudo: yes
-  roles:
-    - add-nodes
