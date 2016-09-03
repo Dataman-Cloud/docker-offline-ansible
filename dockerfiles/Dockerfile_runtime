@@ -5,4 +5,4 @@ RUN yum -y install epel-release && \
     yum clean all 
 RUN pip install ansible
 RUN COPY ../ /opt/anbile/
-WORKDIR /opt/ansible
+WORKDIR /opt/ansible  
