@@ -2,7 +2,7 @@ FROM demoregistry.dataman-inc.com/library/centos7-base:latest
 MAINTAINER Toshio Kuratomi <tkuratomi@ansible.com>
 RUN yum -y install epel-release && \
     yum -y install PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git python-pip && \
-    yum clean all 
+    yum clean all
 RUN pip install ansible
-COPY configuration.tar.gz /opt/anbile/
-WORKDIR /opt/ansible  
+ADD configuration.tar.gz /opt/anbile/
+WORKDIR /opt/ansible
