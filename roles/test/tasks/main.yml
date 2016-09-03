@@ -1,0 +1,6 @@
+---
+# tasks file for test
+#- include: add_rootkey.yml
+#- include: ping.yml
+- include: test.yml
+

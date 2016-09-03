@@ -1,0 +1,29 @@
+- name: Install ntp
+  yum: name=ntp disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes
+
+- name: Sed ntp server in ntp.conf 
+  shell: sed -i "s/--NTPSERVER--/{{ ntpIP }}/" /etc/ntp.conf
+  when: ntpIP is defined
+  sudo: yes
+
+- name: Restart ntp service
+  service: name=ntpd enabled=yes state=restarted 
+  when: ntpIP is defined
+  sudo: yes
+
+- name: sync time
+  shell: /usr/sbin/ntpdate {{ ntpIP }}
+  when: ntpIP is defined
+  sudo: yes
+
+- name: add ntp to crontab 
+  cron: minute="30" name="sync time" job="/usr/sbin/ntpdate {{ ntpIP }}"
+  when: ntpIP is defined
+  sudo: yes
+
+- name: Create ntp.conf
+  copy: src=ntp.conf dest=/etc/ntp.conf owner=root group=root mode=644
+  when: ntpIP is defined
+  sudo: yes
+

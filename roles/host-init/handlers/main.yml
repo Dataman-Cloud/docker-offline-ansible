@@ -1,0 +1,13 @@
+---
+# handlers file for host-init
+- name: restart ssh
+  service: name=ssh state=restarted
+  sudo: yes
+
+- name: reboot host
+  command: /sbin/reboot
+  sudo: yes
+
+- name: restart zabbix-agent
+  service: name=zabbix-agent state=restarted
+  sudo: yes

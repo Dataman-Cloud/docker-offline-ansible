@@ -1,0 +1,3 @@
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  shell: ping 192.168.0.253
+  sudo : yes

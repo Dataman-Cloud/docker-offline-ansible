@@ -1,0 +1,8 @@
+---
+- name: update /etc/security/limits.conf (1/2)
+  sudo: yes
+  lineinfile: dest=/etc/security/limits.conf insertbefore='# End of file' line='*	soft	nofile	65535' 	state=present
+
+- name: update /etc/security/limits.conf (2/2)
+  sudo: yes
+  lineinfile: dest=/etc/security/limits.conf 	insertbefore='# End of file' 	line='*	hard	nofile	65535' 	state=present

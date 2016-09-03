@@ -1,0 +1,5 @@
+---
+ntpIP: "172.16.1.100"
+registryIP: "192.168.1.174"
+dockerVersion: "1.12.1"
+yumMirrorIP: "192.168.1.244:8081"

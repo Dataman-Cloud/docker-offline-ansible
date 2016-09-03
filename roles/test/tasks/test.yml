@@ -1,0 +1,15 @@
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  shell: mkdir -p /data/mesos/jenkins
+  sudo : yes
+
+- name: Rsync
+  copy: src=ntp  dest=/tmp/  
+
+
+
+
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  copy: src=../files/slave.jar  dest=/data/mesos/jenkins/slave.jar
+  sudo : yes
+
+

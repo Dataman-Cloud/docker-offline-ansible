@@ -1,0 +1,7 @@
+- name: Copy scripts to nodes
+  copy: src=add-node.sh dest=/tmp/
+  sudo : yes
+
+- name: run the script add-node.sh
+  shell: /tmp/add-node.sh
+  sudo: yes

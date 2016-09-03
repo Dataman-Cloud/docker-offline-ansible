@@ -1,0 +1,9 @@
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  copy: src=../files/docker-engine_1.9.1-0~trusty_amd64.deb dest=/root/
+  sudo : yes
+
+- name: Install docker 
+  shell: dpkg -i /root/docker-engine_1.9.1-0~trusty_amd64.deb
+  sudo: yes
+  
+  

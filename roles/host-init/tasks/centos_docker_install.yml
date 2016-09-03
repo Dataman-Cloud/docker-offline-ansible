@@ -1,0 +1,24 @@
+- name: Erase docker-engine
+  yum: name=docker-engine state=absent
+  ignore_errors: yes
+
+- name: Install docker-engine
+  yum: name=docker-engine-{{ dockerVersion }} disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes
+
+- name: docker configiration for Registry
+  action: lineinfile dest=/usr/lib/systemd/system/docker.service  regexp="^ExecStart=/usr/bin/dockerd$" line="ExecStart=/usr/bin/dockerd -s overlay -g /data/docker -H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock --insecure-registry {{ registryIP }}" state=present
+  when: registryIP is defined and dockerVersion == "1.12.1" 
+  sudo: yes
+
+- name: Copy Docker-compose 
+  copy: src=docker-compose dest=/bin/docker-compose mode=755
+  sudo: yes
+
+- name: start docker
+  shell: systemctl daemon-reload && service docker start 
+  sudo: yes
+
+- name: enable docker
+  shell: systemctl enable docker 
+  sudo: yes

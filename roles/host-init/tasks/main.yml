@@ -1,0 +1,25 @@
+---
+# tasks file for host-init
+
+- include: hostname-dns.yml
+#- include: hostsoffline.yml
+
+##########
+# Ubuntu #
+# ########
+#- include: ubuntudocker_install.yml
+
+
+##########
+# CentOS #
+# ########
+- include: centos_mirror_install.yml
+- include: centos_docker_install.yml
+- include: stopfirewall.yml
+- include: stopsennlix.yml
+- include: centos_ntp_install.yml
+- include: centos_perf_strace_telnet.yml
+- include: centos_net-tools.yml
+- include: centos_lrzsz.yml
+- include: update_limits.yml
+- include: restart.yml

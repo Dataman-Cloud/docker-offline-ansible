@@ -1,0 +1,3 @@
+- name: Install net-tools
+  yum: name=net-tools disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes

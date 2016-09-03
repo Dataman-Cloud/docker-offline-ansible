@@ -1,0 +1,12 @@
+# {{ ansible_managed}}
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
+#196.123.132.41 offlineregistry.dataman-inc.com
+#196.123.132.201 registry.ssecloud.com
+{% for item in play_hosts %}
+{% if hostvars[item]['hostname'] %}
+{{ hostvars[item]['ansible_ssh_host'] }} {{ hostvars[item]['hostname'] }} 
+{% endif %}
+{% endfor %}

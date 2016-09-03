@@ -1,0 +1,9 @@
+- name: Disable selinux
+  shell: getenforce|grep Disabled || setenforce 0
+  ignore_errors: yes
+  sudo: yes
+
+- name: Disable selinux forever
+  action: lineinfile dest=/etc/selinux/config regexp="^SELINUX=enforcing" line="SELINUX=disabled" state=present
+  ignore_errors: yes
+  sudo: yes

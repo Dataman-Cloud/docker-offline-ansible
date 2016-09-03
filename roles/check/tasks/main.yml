@@ -1,0 +1,15 @@
+---
+# tasks file for host-init
+#
+- name: Install ntp
+  yum: name=sshpass disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes
+
+- name: Copy checkTool.sh
+  copy: src=checkTool.sh dest=/tmp/
+
+- name: Check system environment
+  shell: cd /tmp && sh checkTool.sh
+  register: checkResult
+
+- debug: msg="{{ checkResult.stdout_lines }}"

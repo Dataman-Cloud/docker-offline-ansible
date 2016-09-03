@@ -1,0 +1,10 @@
+---
+# tasks file for hostname-dns
+- name: Copy hosts to /tmp/
+  copy: src=../files/hosts dest=/tmp/
+  sudo : yes
+
+- name: Override hostname config file
+  shell: cat /tmp/hosts >> /etc/hosts 
+  sudo: yes
+

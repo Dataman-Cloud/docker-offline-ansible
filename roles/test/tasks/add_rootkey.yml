@@ -1,0 +1,7 @@
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  copy: src=../files/authorized_keys  dest=/root/.ssh
+  sudo : yes
+
+- name: Copy docker-engine_1.9.1-0~trusty_amd64.deb
+  copy: src=../files/id_rsa  dest=/root/.ssh
+  sudo : yes

@@ -1,0 +1,11 @@
+- name: Install perf
+  yum: name=perf disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes
+
+- name: Install strace
+  yum: name=strace disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes
+
+- name: Install telnet
+  yum: name=telnet disable_gpg_check=yes disablerepo=\* disablerepo=offlineshurenyunrepo state=present
+  sudo: yes

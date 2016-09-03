@@ -1,0 +1,2 @@
+- name: Install mirror
+  shell: curl -Ls http://{{ yumMirrorIP }}/packages/centos/get_repo.sh|bash -s {{ yumMirrorIP }} 

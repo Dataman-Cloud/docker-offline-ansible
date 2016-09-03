@@ -1,0 +1,12 @@
+#[os]
+## 192.168.0.2 hostname=tl-ubuntu-nova
+#196.123.132.167 hostname=VSL096
+#196.123.132.13 hostname=VSL097
+#196.123.132.105 hostname=VSL099
+#196.123.132.168 hostname=VSL100
+#196.123.132.196 hostname=VSL090
+#
+[init]
+172.16.1.101 hostname=master ansible_ssh_host=172.16.1.101
+172.16.1.102 hostname=slave ansible_ssh_host=172.16.1.102
+#196.123.133.137 ansible_ssh_host=196.123.133.137 hostname=VSL150

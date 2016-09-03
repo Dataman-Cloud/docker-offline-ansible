@@ -1,0 +1,5 @@
+---
+- hosts: init
+  sudo: yes
+  roles:
+    - host-init

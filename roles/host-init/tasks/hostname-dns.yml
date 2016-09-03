@@ -1,0 +1,17 @@
+---
+# tasks file for hostname-dns
+#- name: Create dns config file
+#  copy: src=resolv.conf dest=/etc/resolv.conf owner=root group=root mode=644
+#  sudo: yes
+
+- name: Override hostname config file
+  template: src=hostname.j2 dest=/etc/hostname owner=root group=root mode=644
+  when: hostname is defined
+  sudo: yes
+
+- name: Override hosts config file
+  template: src=hosts.j2 dest=/etc/hosts owner=root group=root mode=644
+  when: hostname is defined
+  sudo: yes
+#  notify:
+ #   - reboot host
